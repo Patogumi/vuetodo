@@ -24,7 +24,7 @@
          <li class="list-group-item" 
             v-for="(item, index) in notas" :key="index" >
           <span class="badge badge-primary float-right">
-            {{item.updated_at}}
+            {{item.fecha}}
           </span>
           <p>{{item.nombre}}</p>
           <p>{{item.descripcion}}</p>

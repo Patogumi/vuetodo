@@ -37854,7 +37854,7 @@ var render = function() {
       _vm._l(_vm.notas, function(item, index) {
         return _c("li", { key: index, staticClass: "list-group-item" }, [
           _c("span", { staticClass: "badge badge-primary float-right" }, [
-            _vm._v("\n          " + _vm._s(item.updated_at) + "\n        ")
+            _vm._v("\n          " + _vm._s(item.fecha) + "\n        ")
           ]),
           _vm._v(" "),
           _c("p", [_vm._v(_vm._s(item.nombre))]),

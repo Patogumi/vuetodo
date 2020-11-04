@@ -17,6 +17,7 @@ class CreateNotasTable extends Migration
             $table->bigIncrements('id');
             $table->string('nombre');
             $table->text('descripcion');
+            $table->string('fecha');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

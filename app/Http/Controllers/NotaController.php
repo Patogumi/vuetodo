@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Nota;
+use Carbon\Carbon;
 
 class NotaController extends Controller
 {
@@ -11,8 +14,27 @@ class NotaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+
+    //  $this->middleware('log')->only('index');
+
+    }
+
     public function index(Request $request)
-    {   
+    { 
+        
+ //       $mytime = Carbon::now();
+//echo $mytime->toDateTimeString();
+
+     //   return Nota::where('user_id', auth()->id())->get();
+
         if($request->ajax()){
             return Nota::where('user_id', auth()->id())->get();
         }else{
@@ -41,6 +63,8 @@ class NotaController extends Controller
         $nota = new Nota();
         $nota->nombre = $request->nombre;
         $nota->descripcion = $request->descripcion;
+        $mytime = Carbon::now();
+        $nota->fecha = $mytime->toDateTimeString();
         $nota->user_id = auth()->id();
         $nota->save();
     
